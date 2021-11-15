@@ -5,9 +5,16 @@ import { AuthModule } from './auth/auth.module';
 import { ReviewModule } from './review/review.module';
 import { ProductModule } from './product/product.module';
 import { TopPageModule } from './top-page/top-page.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
-  imports: [AuthModule, TopPageModule, ProductModule, ReviewModule],
+  imports: [
+    ConfigModule.forRoot(),
+    AuthModule, 
+    TopPageModule, 
+    ProductModule,
+    ReviewModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
